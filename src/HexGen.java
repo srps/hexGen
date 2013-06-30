@@ -9,8 +9,8 @@ public class HexGen {
 
         HexGen hg = new HexGen();
 
-        int startSize = 3;
-        int endSize = 5;
+        int startSize = Integer.parseInt(args[0]);
+        int endSize = Integer.parseInt(args[1]);
 
         StringBuilder sb;
 
@@ -29,7 +29,6 @@ public class HexGen {
                 Writer w = new FileWriter("test" + size + ".txt")
         ) {
             String res;
-            String zeros = "000000000000000000000000000000000000000000000000000000000000000";
 
             StringBuilder sb = new StringBuilder(size);
 
@@ -40,7 +39,7 @@ public class HexGen {
                 res = j.toString(16);
 
                 if (res.length() != size) {
-                    sb.append(zeros.substring(0, size - res.length()));
+                    sb.append(s.substring(1, size - res.length() + 1));
                 }
                 sb.append(res);
                 w.write(sb.toString() + System.getProperty("line.separator"));
