@@ -9,21 +9,28 @@ public class HexGen {
 
         HexGen hg = new HexGen();
 
-        int startSize = Integer.parseInt(args[0]);
-        int endSize = Integer.parseInt(args[1]);
+        try {
+            int startSize = Integer.parseInt(args[0]);
+            int endSize = Integer.parseInt(args[1]);
 
-        StringBuilder sb;
+            StringBuilder sb;
 
-        for (int size = startSize; size < endSize + 1; size++) {
-            sb = new StringBuilder(size);
-            sb.append("1");
-            for (int i = size; i > 0; i--)
-                sb.append("0");
-            hg.run(size, sb.toString());
+            for (int size = startSize; size < endSize + 1; size++) {
+                sb = new StringBuilder(size);
+                sb.append("1");
+                for (int i = size; i > 0; i--)
+                    sb.append("0");
+                hg.run(size, sb.toString());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("Usage: HexGen <startSize> <endSize>");
+            System.err.println("minimum startSize: 1");
         }
+
+
     }
 
-    public void run(int size, String s) {
+    private void run(int size, String s) {
 
         try (
                 Writer w = new FileWriter("test" + size + ".txt")
