@@ -33,7 +33,7 @@ public class HexGen {
     private void run(int size, String s) {
 
         try (
-                Writer w = new FileWriter("test" + size + ".txt")
+                Writer w = new FileWriter("hexgen" + size + ".txt")
         ) {
             String res;
 
