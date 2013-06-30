@@ -1,1 +1,16 @@
-This file was created by IntelliJ IDEA 12.1.4 for binding GitHub repository
+Created per friend request.
+
+Generates whole hexadecimal sequences into files.
+
+Usage: HexGen <startSize> <endSize>
+--minimum startSize = 1 
+
+Usage example:
+
+java HexGen 1 3
+
+Generates 3 files:
+
+hexgen1.txt - contains all sequences from 0 to F
+hexgen2.txt - contains all sequences from 00 to FF
+hexgen3.txt - contains all sequences from 000 to FFF
